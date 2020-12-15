@@ -1,14 +1,17 @@
 <?php
 
-class HomeController {
+namespace Controllers;
+
+class LoginController {
 
     public function __construct()
     {
-        echo "__construct";
+
     }
 
     public function index()
     {
-        require 'views/home.view.php';
+        
     }
+
 }

@@ -1,8 +1,11 @@
 <?php
 
+use App\Libraries\Router;
+use App\Libraries\Request;
+
 require 'vendor/autoload.php';
 
-require 'core/bootstrap.php';
+require 'Core/bootstrap.php';
 
 require 'views/layouts/head.view.php';
 

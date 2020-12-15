@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Libraries;
+
 class Router {
 
     public $routes = [
@@ -26,7 +28,7 @@ class Router {
             return $this->routes[$requestType][$uri];
         }
 
-        throw new Exception('No route defined for this route.');
+        throw new \Exception('No route defined for this route.');
     }
 
 

@@ -2,12 +2,9 @@
 
 namespace App\Controllers;
 
-class HomeController {
+dd($_SERVER);
 
-    public function __construct()
-    {
-        echo "__construct";
-    }
+class HomeController {
 
     public function index()
     {

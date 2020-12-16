@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-dd($_SERVER);
-
 class HomeController {
 
     public function index()

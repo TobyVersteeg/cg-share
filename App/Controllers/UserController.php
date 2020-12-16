@@ -5,11 +5,14 @@ namespace App\Controllers;
 class UserController extends Controller
 {
 
-    protected $request;
-
-    static function request()
+    public function index()
     {
-        self::$request = parent::getRequest();
+
+    }
+
+    public function store(array $data)
+    {
+
     }
 
 }

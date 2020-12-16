@@ -1,8 +1,8 @@
 <?php
 
-namespace Controllers;
+namespace App\Controllers;
 
-class ProfileController
+class ProfileController extends Controller
 {
     
 }

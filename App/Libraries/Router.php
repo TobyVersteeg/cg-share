@@ -25,7 +25,13 @@ class Router {
     {
         if (array_key_exists($uri, $this->routes[$requestType]))
         {
-            return $this->routes[$requestType][$uri];
+            $classAndFunc = $this->stripFunctionName($this->routes[$requestType][$uri]);
+
+            return [
+                'uri' => $classAndFunc['uri'],
+                'function' => $classAndFunc['function'],
+                'class' => $classAndFunc['class'],
+            ];
         }
 
         throw new \Exception('No route defined for this route.');
@@ -41,5 +47,29 @@ class Router {
     public function post($uri, $controller)
     {
         $this->routes['POST'][$uri] = $controller;
+    }
+
+    private function stripFunctionName($uri)
+    {
+        $class = str_ireplace('.php', '', $uri);
+
+        $data = [
+            'uri' => $uri,
+            'function' => 'index',
+            'class' => str_replace('/', '\\', $class),
+        ];
+
+        $atSign = strpos($uri, '@');
+
+        if ($atSign !== false)
+        {
+            $data = [
+                'uri' => substr($uri, 0, $atSign),
+                'function' => substr($uri, $atSign + 1),
+                'class' => end($expl),
+            ];
+        }
+
+        return $data;
     }
 }
